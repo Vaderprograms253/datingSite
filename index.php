@@ -49,8 +49,11 @@ $f3->route('GET|POST /create', function ($f3){
         $_SESSION['firstName'] = $_POST['firstName'];
         $_SESSION['lastName'] = $_POST['lastName'];
         $_SESSION['age'] = $_POST['age'];
-        $_SESSION['gender'] = $_POST['gender'];
+        if ($_POST['gender'] != null || $_POST['gender'] != " "){
+            $_SESSION['gender'] = $_POST['gender'];
+        }
         $_SESSION['phone'] = $_POST['phone'];
+
 
 
     }
@@ -75,7 +78,9 @@ $f3->route('GET|POST /profile', function ($f3){
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['seeking'] = $_POST['seeking'];
     $_SESSION['state'] = $_POST['state'];
-    $_SESSION['aboutMe'] = $_POST['aboutMe'];
+    if ($_POST['aboutMe'] != null || $_POST['aboutMe'] != " "){
+        $_SESSION['aboutMe'] = $_POST['aboutMe'];
+    }
 
         $view = new Template();
    echo  $view->render('views/profile.html');
