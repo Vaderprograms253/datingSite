@@ -1,0 +1,44 @@
+.btn{
+    border-radius: 25%;
+    width: 15%;
+}
+ .nav{
+     background-color: steelblue;
+ }
+ .nav-link{
+     transition: background-color 2s, color 2s;
+     color: midnightblue;
+ }
+
+
+ .nav-link:hover{
+     background-color: aliceblue;
+     color: deeppink;
+ }
+
+.reviews{
+    font-style: italic;
+}
+
+body {
+    background-color: lavender;
+}
+
+.img {
+    width: 500px;
+    height: 500px;
+}
+
+.date_form{
+    background-color: steelblue;
+}
+
+.form-group{
+    padding-left: 10px;
+}
+
+.err {
+    color: darkred;
+}
+
+
