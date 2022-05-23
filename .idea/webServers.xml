@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="46892d06-320b-4b2a-aac0-1b4f49db6d0d" name="greenriverdev">
+        <fileTransfer rootFolder="/home/xdenson1/public_html" accessType="SFTP" host="xdenson.greenriverdev.com" port="18765" sshConfigId="229c515e-5857-4d7f-bd7c-e31dcc090367" sshConfig="xdenson1@xdenson.greenriverdev.com:18765 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
