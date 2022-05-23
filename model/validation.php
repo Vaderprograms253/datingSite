@@ -1,5 +1,6 @@
 <?php
 
+require_once('model/data-layer.php');
 
 /*
  * required
@@ -51,10 +52,19 @@ function validEmail($email){
 }
 
 //checks each selected outdoor
-function validOutdoor(){
+function validOutdoor($interests){
+    if (in_array($interests, getOutdoor())){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //checks selected indoor
-function validIndoor(){
-
+function validIndoor($interests){
+    if (in_array($interests, getIndoor())){
+        return true;
+    } else {
+        return false;
+    }
 }
