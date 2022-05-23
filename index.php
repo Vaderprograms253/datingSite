@@ -86,7 +86,15 @@ $f3->route('GET|POST /interests', function ($f3){
 
     $f3->set('indoorInterest', getIndoor());
     $f3->set('outdoorInterest', getOutdoor());
+    $interests = $_POST['interests'];
 
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (validIndoor($interests) || validOutdoor($interests)){
+            header('location: summary');
+        } else {
+            $f3->set('errors["interests"]', 'Please select an option');
+        }
+    }
     $view = new Template();
     echo  $view->render('views/interests.html');
 });
@@ -95,7 +103,9 @@ $f3->route('GET|POST /summary', function (){
 
  //   var_dump($_POST);
     $interests = $_POST['interests'];
-    $_SESSION['interests'] = $interests;
+
+
+        $_SESSION['interests'] = $interests;
 
     $view = new Template();
     echo  $view->render('views/profileSummary.php');

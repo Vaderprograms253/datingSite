@@ -39,10 +39,7 @@ function validPhone($phone){
     }
 }
 
-/*
- * required
- * checks email is valid
- */
+
 function validEmail($email){
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
@@ -51,7 +48,9 @@ function validEmail($email){
     }
 }
 
-//checks each selected outdoor
+/*
+ * checks each selected outdoor
+ */
 function validOutdoor($interests){
     if (in_array($interests, getOutdoor())){
         return true;
@@ -59,8 +58,9 @@ function validOutdoor($interests){
         return false;
     }
 }
-
-//checks selected indoor
+/*
+ * checks each selected indoor
+ */
 function validIndoor($interests){
     if (in_array($interests, getIndoor())){
         return true;
