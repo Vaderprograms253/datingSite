@@ -1,8 +1,10 @@
 <?php
 
 
-//required
-//checks all strings are alphabetic
+/*
+ * required
+ * checks all strings are alphabetic
+ */
 function validName($firstName, $lastName){
     if (empty($_POST["firstName"]) || empty($_POST["lastName"])){
         return false;
@@ -11,8 +13,10 @@ function validName($firstName, $lastName){
     }
 }
 
-//required
-//checks age is between 18 and 118
+/*
+* required
+* checks age is between 18 and 118
+*/
 function validAge($age){
     if ($age < 18 || $age > 118){
         return false;
@@ -22,8 +26,10 @@ function validAge($age){
 
 }
 
-//required
-//checks to see that phone is valid
+/*
+ * required
+ * checks to see that phone is valid
+ */
 function validPhone($phone){
     if(preg_match('/^[0-9]{10}+$/', $phone)) {
         return true;
@@ -32,8 +38,10 @@ function validPhone($phone){
     }
 }
 
-//required
-//checks email is valid
+/*
+ * required
+ * checks email is valid
+ */
 function validEmail($email){
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
