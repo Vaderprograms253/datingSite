@@ -61,6 +61,7 @@ $f3->route('GET|POST /create', function ($f3){
         echo $view->render ('views/personInfo.html');
     });
 
+//route to profile
 $f3->route('GET|POST /profile', function ($f3){
   // var_dump($_POST);
 
@@ -86,6 +87,7 @@ $f3->route('GET|POST /profile', function ($f3){
    echo  $view->render('views/profile.html');
 });
 
+//route to interests
 $f3->route('GET|POST /interests', function ($f3){
  //  var_dump($_POST);
 
@@ -104,6 +106,7 @@ $f3->route('GET|POST /interests', function ($f3){
     echo  $view->render('views/interests.html');
 });
 
+//route to summary
 $f3->route('GET|POST /summary', function (){
 
  //   var_dump($_POST);
