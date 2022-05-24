@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * PremiumMember.php
+ * Xavier Denson
+ * 05/23/2022
+ *
+ * This class represents a premium member
+ */
 class PremiumMember extends Member{
     //instance variables
     private $_indoorInterests;
