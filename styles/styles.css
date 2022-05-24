@@ -1,6 +1,12 @@
 .btn{
-    border-radius: 25%;
+    border-radius: 50%;
     width: 15%;
+    transition: background-color 2s, color 2s;
+}
+
+.btn:hover{
+background-color: aliceblue;
+    color: deeppink;
 }
  .nav{
      background-color: steelblue;
