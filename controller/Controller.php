@@ -30,8 +30,24 @@ class Controller {
      * Displays personal info page
      */
     function personalInfo(){
+        //check if user has selected to be a premium member
+        if (isset($_POST['premium'])){
+            $user = new PremiumMember();
+        } else {
+            $user = new Member();
+        }
 
-    }
+        //check if form is submitted
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //store values into user
+             $user->setFirstName($_POST['firstName']);
+             $user->setLastName($_POST['lastName']);
+             $user->setAge($_POST['age']);
+             $user->setPhone($_POST['phone']);
+             $user->setGender($_POST['gender']);
+        }
+
+        }
 
     /*
      * Displays profile page
