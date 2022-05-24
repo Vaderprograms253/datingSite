@@ -37,13 +37,13 @@ $f3->route('GET|POST /create', function ($f3){
             header('location: profile');
         } else {
             if (!$validName) {
-                $f3->set('errors["lastName"]', 'Please enter a valid name');
+                $f3->set('errors["lastName"]', 'Please enter a valid first and last name');
             }
             if (!$validAge) {
-                $f3->set('errors["age"]', 'Please enter a valid age');
+                $f3->set('errors["age"]', 'Must be 18 or older to sign up');
             }
             if (!$validPhone) {
-                $f3->set('errors["phone"]', 'Please enter 10 digits');
+                $f3->set('errors["phone"]', 'Phone number must be 10 digits');
             }
         }
         $_SESSION['firstName'] = $_POST['firstName'];
@@ -96,10 +96,10 @@ $f3->route('GET|POST /interests', function ($f3){
     $interests = $_POST['interests'];
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (validIndoor($interests) || validOutdoor($interests)){
+        if (validIndoor($interests) && validOutdoor($interests)){
             header('location: summary');
         } else {
-            $f3->set('errors["interests"]', 'Please select an option');
+            $f3->set('errors["interests"]', 'Not valid');
         }
     }
     $view = new Template();
