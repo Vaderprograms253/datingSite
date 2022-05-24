@@ -21,6 +21,8 @@ class Controller {
      * displays home page
      */
     function homePage(){
+        $view = new Template();
+        echo $view->render('views/home.html');
 
     }
 
