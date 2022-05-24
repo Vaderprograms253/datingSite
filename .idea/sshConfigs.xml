@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="xdenson.greenriverdev.com" id="229c515e-5857-4d7f-bd7c-e31dcc090367" port="18765" nameFormat="DESCRIPTIVE" username="xdenson1" useOpenSSHConfig="true" />
-    </configs>
-  </component>
-</project>
