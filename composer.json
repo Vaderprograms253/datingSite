@@ -11,5 +11,8 @@
   ],
   "require": {
     "bcosca/fatfree": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["classes/", "model", "controller"]
   }
 }
