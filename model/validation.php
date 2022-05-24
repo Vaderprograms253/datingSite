@@ -52,19 +52,23 @@ function validEmail($email){
  * checks each selected outdoor
  */
 function validOutdoor($interests){
-    if (in_array($interests, getOutdoor())){
-        return true;
-    } else {
-        return false;
+    $validIndoor = DataLayer::getIndoor();
+    foreach ($interests as $interest) {
+        if (!in_array($interest, $validIndoor)) {
+            return false;
+        }
     }
+    return true;
 }
 /*
  * checks each selected indoor
  */
 function validIndoor($interests){
-    if (in_array($interests, getIndoor())){
-        return true;
-    } else {
-        return false;
+    $validOutdoor = DataLayer::getOutdoor();
+    foreach ($interests as $interest) {
+        if (!in_array($interest, $validOutdoor)) {
+            return false;
+        }
     }
+    return true;
 }
