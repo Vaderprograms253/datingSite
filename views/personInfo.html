@@ -10,7 +10,7 @@
 <body>
 <ul class="nav">
 <li class="nav-item">
-    <a class="nav-link" href="http://xdenson.greenriverdev.com/328/dating/">My Dating Site</a>
+    <a class="nav-link" href="http://xdenson.greenriverdev.com/328/datingSite/">My Dating Site</a>
 </li>
 </ul>
 <div class="container text-right">
@@ -73,6 +73,11 @@
                     <check if="{{ isset(@errors['phone'])}}">
                         <span class="err">{{ @errors['phone']}}</span>
                     </check>
+                </div>
+
+                <div class="m-2 form-check">
+                    <input type="checkbox" class="form-check-input" id="premium_member">
+                    <label class="form-check-label" for="premium_member">Sign me up for a Premium Account</label>
                 </div>
                 <input class="form-control m-3 btn btn-primary"
                        data-bs-toggle="tooltip" title="Did you fill everything out?" type="submit" value="Next">
