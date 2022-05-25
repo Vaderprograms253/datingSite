@@ -21,11 +21,12 @@
 
                 <div class="form-group pt-3">
                     <label for="firstName"><b>First Name:</b> </label><br/>
-                    <input class="mt-2" type="text" id="firstName" name="firstName">
+                    <input class="mt-2" type="text" id="firstName" name="firstName" value="{{ @userFirst }}">
+
                 </div>
                 <div class="form-group mt-4">
                     <label for="lastName"><b>Last Name:</b></label><br>
-                    <input class="mt-2" type="text" id="lastName" name="lastName">
+                    <input class="mt-2" type="text" id="lastName" name="lastName" value="{{ @userLast }}">
                     <!--Check for errors -->
                     <check if="{{ isset(@errors['lastName'])}}">
                         <span class="err">{{ @errors['lastName']}}</span>
@@ -37,7 +38,7 @@
                 <div class="form-group mt-4">
 
                     <label for="age"><b>Age</b></label>
-                    <input type="number" min="0" max="200" id="age" name="age" class="m-3 ">
+                    <input type="number" min="0" max="200" id="age" name="age" class="m-3 " value="{{userAge}}">
                     <check if="{{ isset(@errors['age'])}}">
                         <span class="err">{{ @errors['age']}}</span>
                     </check>
@@ -46,37 +47,37 @@
 
                 <div class="form-group form-inline">
                     <h5>Gender</h5>
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                    <input class="form-check-input" type="radio" name="gen" id="male" value="Male">
                     <label class="form-check-label" for="male">
                         Male
                     </label><br>
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                    <input class="form-check-input" type="radio" name="gen" id="female" value="Female">
                     <label class="form-check-label" for="female">
                         Female
                     </label><br>
-                    <input class="form-check-input" type="radio" name="gender" id="transgender" value="Transgender">
+                    <input class="form-check-input" type="radio" name="gen" id="transgender" value="Transgender">
                     <label class="form-check-label" for="transgender">
                         Transgender
                     </label><br>
-                    <input class="form-check-input" type="radio" name="gender" id="nonConforming" value="Non Conforming">
+                    <input class="form-check-input" type="radio" name="gen" id="nonConforming" value="Non Conforming">
                     <label class="form-check-label" for="nonConforming">
                         Gender non-conforming
                     </label><br>
-                    <input class="form-check-input" type="radio" name="gender" id="noSelection" value="No Selection">
+                    <input class="form-check-input" type="radio" name="gen" id="noSelection" value="No Selection">
                     <label class="form-check-label" for="noSelection">
                         Prefer not to say
                     </label><br>
                 </div>
                 <div class="form-group">
                     <label for="phone"><b>Phone Number</b></label>
-                    <input class="m-3" type="tel" id="phone" name="phone">
+                    <input class="m-3" type="text" id="phone" name="phone" value="{{ @userPhone}}">
                     <check if="{{ isset(@errors['phone'])}}">
                         <span class="err">{{ @errors['phone']}}</span>
                     </check>
                 </div>
 
                 <div class="m-2 form-check">
-                    <input type="checkbox" class="form-check-input" id="premium_member" name="premium" value="premium">
+                    <input type="checkbox" class="form-check-input" id="premium_member" name="premium" value="{{ @premiumUser}}"
                     <label class="form-check-label" for="premium_member">Sign me up for a Premium Account</label>
                 </div>
                 <input class="form-control m-3 btn btn-primary"

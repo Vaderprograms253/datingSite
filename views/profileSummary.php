@@ -30,9 +30,6 @@
         </div>
             <div class="col-6"><img src="images/candies.jpg" class="rounded img" alt="puzzle image">
             </div>
-        <div class="col">
-            <button class="btn btn-primary">Contact Me!</button>
-        </div>
     </div>
 </div>
 

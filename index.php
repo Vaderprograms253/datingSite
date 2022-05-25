@@ -96,7 +96,8 @@ $f3->route('GET|POST /interests', function ($f3){
     $interests = $_POST['interests'];
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (validIndoor($interests) && validOutdoor($interests)){
+
+        if (validIndoor($_POST['interests']) && validOutdoor($_POST['interests'])){
             header('location: summary');
         } else {
             $f3->set('errors["interests"]', 'Not valid');
