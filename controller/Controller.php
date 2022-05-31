@@ -82,6 +82,7 @@ class Controller
 
             //set gender for user
             $user->setGender($userGender);
+            $_SESSION['user'] = $user;
 
             //check if no errors
             if (empty($this->f3->get('errors'))){
@@ -108,6 +109,39 @@ class Controller
      */
     function profile()
     {
+        //retrieve user and variables
+        $user = $_SESSION['user'];
+        $user->setEmail("");
+        $user->setState("");
+        $user->setSeeking("");
+        $user->setBio("");
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //validate email entered
+            $userEmail = $_POST['email'];
+            if (DataValidation::validEmail($userEmail)){
+                $user->setEmail($userEmail);
+            } else {
+                $this->f3->set('errors["email"]', 'Email is invalid');
+            }
+
+            $user->setState($_POST['state']);
+            $user->setState($_POST['bio']);
+            $user->setState($_POST['seeking']);
+
+            //check if user is premium
+            if ($user instanceof PremiumMember){
+                header('location: interests');
+            } else {
+                header('location: summary');
+            }
+        }
+        $this->f3->set('email', $user->getEmail());
+        $this->f3->set('state', $user->getState());
+        $this->f3->set('seeking', $user->getSeeking());
+        $this->f3->set('bio', $user->getBio());
+
+        $view = new Template();
 
     }
 
