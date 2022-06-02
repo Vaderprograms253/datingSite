@@ -19,7 +19,7 @@ class Member {
     private $_seeking;
     private $_bio;
 
-    public function __construct($_firstName, $_lastName, $_age, $_gender, $_phone)
+    public function __construct($_firstName = "", $_lastName ="", $_age = "", $_gender = "", $_phone = "")
     {
         $this->_firstName = $_firstName;
         $this->_lastName = $_lastName;
