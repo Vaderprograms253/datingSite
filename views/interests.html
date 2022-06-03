@@ -22,9 +22,12 @@
                 <div class="form-group">
                     <repeat group="{{ @indoorInterest }}" value="{{ @indoor }}">
                         <div>
-                            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="interests[]" value="{{ @indoor }}">{{ ucfirst(@indoor) }}</label>
+                            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="interestsIndoor[]" value="{{ @indoor }}">{{ ucfirst(@indoor) }}</label>
                         </div>
                     </repeat>
+                    <check if="{{ isset(@errors['email'])}}">
+                        <span class="err">{{ @errors['indoorErr']}}</span>
+                    </check>
                 </div>
 
 
@@ -33,9 +36,12 @@
                 <div class="form-group">
                 <repeat group="{{ @outdoorInterest }}" value="{{ @outdoor }}">
                     <div>
-                        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="interests[]" value="{{ @outdoor }}">{{ ucfirst(@outdoor) }}</label>
+                        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="interestsOutdoor[]" value="{{ @outdoor }}">{{ ucfirst(@outdoor) }}</label>
                     </div>
                 </repeat>
+                    <check if="{{ isset(@errors['email'])}}">
+                        <span class="err">{{ @errors['outdoorErr']}}</span>
+                    </check>
                 </div>
                 <input class="form-control btn btn-primary"
                 type="submit" value="Submit">

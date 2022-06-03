@@ -29,7 +29,7 @@
                     <input class="mt-2" type="text" id="lastName" name="lastName" value="{{ @userLast }}">
                     <!--Check for errors -->
                     <check if="{{ isset(@errors['lastName'])}}">
-                        <span class="err">{{ @errors['lastName']}}</span>
+                        <span class="err">{{ @errors['lastName'] }}</span>
                     </check>
                 </div>
 
@@ -38,7 +38,7 @@
                 <div class="form-group mt-4">
 
                     <label for="age"><b>Age</b></label>
-                    <input type="number" min="0" max="200" id="age" name="age" class="m-3 " value="{{userAge}}">
+                    <input type="number" min="0" max="200" id="age" name="age" class="m-3 " value="{{ @userAge }}">
                     <check if="{{ isset(@errors['age'])}}">
                         <span class="err">{{ @errors['age']}}</span>
                     </check>
@@ -77,11 +77,11 @@
                 </div>
 
                 <div class="m-2 form-check">
-                    <input type="checkbox" class="form-check-input" id="premium_member" name="premium" value="{{ @premiumUser}}"
+                    <input type="checkbox" class="form-check-input" id="premium_member" name="premium" value="{{ @premiumUser}}">
                     <label class="form-check-label" for="premium_member">Sign me up for a Premium Account</label>
                 </div>
                 <input class="form-control m-3 btn btn-primary"
-                       data-bs-toggle="tooltip" title="Did you fill everything out?" type="submit" value="Next">
+                   data-bs-toggle="tooltip" title="Did you fill everything out?" type="submit">Next</input>
 
             </form>
         </div>

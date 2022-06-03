@@ -12,7 +12,7 @@ class PremiumMember extends Member
     private $_indoorInterests;
     private $_outdoorInterests;
 
-    public function __construct($_indoorInterests, $_outdoorInterests)
+    public function __construct($_indoorInterests= "", $_outdoorInterests= "")
     {
     }
 
