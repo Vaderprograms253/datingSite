@@ -136,7 +136,7 @@ class Controller
 
             //validate options
             if (!empty($_POST['interestsIndoor'])) {
-                
+
                 if (Validation::validIndoor($_POST['interestsIndoor'])) {
                     $member->setIndoorInterests($_POST['interestsIndoor']);
                 } else {

@@ -1,5 +1,10 @@
 <?php
-
+/*
+ * Author: Xavier Denson
+ * Date: 6/04/2022
+ * Validation.php
+ * This class holds functions for validation
+ */
 class Validation
 {
 
