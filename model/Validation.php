@@ -52,10 +52,10 @@ class Validation
     /*
      * checks each selected outdoor
      */
-    function validOutdoor($interests){
-        $validIndoor = DataLayer::getIndoor();
+    static function validOutdoor($interests){
+        $validOutdoor = DataLayer::getOutdoor();
         foreach ($interests as $interest) {
-            if (!in_array($interest, $validIndoor)) {
+            if (!in_array($interest, $validOutdoor)) {
                 return false;
             }
         }
@@ -64,10 +64,10 @@ class Validation
     /*
      * checks each selected indoor
      */
-    function validIndoor($interests){
-        $validOutdoor = DataLayer::getOutdoor();
+    static function validIndoor($interests){
+        $validIndoor = DataLayer::getIndoor();
         foreach ($interests as $interest) {
-            if (!in_array($interest, $validOutdoor)) {
+            if (!in_array($interest, $validIndoor)) {
                 return false;
             }
         }

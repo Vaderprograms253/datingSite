@@ -107,7 +107,6 @@ class Controller
             $member->setSeeking($seeking);
             $member->setBio($bio);
 
-            $_SESSION['member'] = $member;
 
             if (empty($this->_f3->get('errors'))){
                 if ($member instanceof PremiumMember){
@@ -129,12 +128,44 @@ class Controller
      */
     function interests()
     {
+        $member = $_SESSION['member'];
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+
+            //validate options
+            if (!empty($_POST['interestsIndoor'])) {
+                
+                if (Validation::validIndoor($_POST['interestsIndoor'])) {
+                    $member->setIndoorInterests($_POST['interestsIndoor']);
+                } else {
+                    $this->_f3->set('errors[indoorErr]', 'invalid entry');
+                }
+            }
+
+            if (Validation::validOutdoor($_POST['interestsOutdoor'])){
+                $member->setOutdoorInterests($_POST['interestsOutdoor']);
+            } else {
+                $this->_f3->set('errors[outdoorErr]', 'invalid entry');
+            }
+
+            if (empty($this->_f3->get('errors'))){
+                header('location: summary');
+            }
+        }
+      // $indoor = $_POST['interestsIndoor'];
+       // $outdoor = $_POST['interestsOutdoor'];
+        $this->_f3->set('indoorInterest', DataLayer::getIndoor());
+        $this->_f3->set('outdoorInterest', DataLayer::getOutdoor());
+
         $view = new Template();
         echo $view->render('views/interests.html');
 
     }
 
     function summary(){
+        var_dump($_POST);
         $view = new Template();
         echo $view->render('views/summary.html');
     }

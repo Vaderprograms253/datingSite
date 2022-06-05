@@ -29,7 +29,7 @@ $f3->route('GET|POST /interests', function () {
     $GLOBALS['con']->interests();
 });
 
-$f3->route('GET /summary', function (){
+$f3->route('GET|POST /summary', function (){
    $GLOBALS['con']->summary();
 });
 

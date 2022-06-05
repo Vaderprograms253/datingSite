@@ -2,11 +2,11 @@
 
 class DataLayer
 {
-    function getIndoor(){
+    static function getIndoor(){
         return array("tv", "video games", "cooking", "reading", "decorating", "none" );
     }
 
-    function getOutdoor(){
+    static function getOutdoor(){
         return array("hiking", "running", "exploring", "eating out", "bar", "none");
 
     }
