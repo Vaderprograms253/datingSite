@@ -57,7 +57,7 @@ class Controller
             }
 
             if (Validation::validAge($age)){
-                $member->setAge('userAge', $age);
+                $member->setAge($age);
             } else {
                 $this->_f3->set('errors[age]','Invalid age range');
             }
@@ -96,7 +96,7 @@ class Controller
             $email = $_POST['email'];
             $state = $_POST['state'];
             $seeking = $_POST['seeking'];
-            $bio = $_POST['bio'];
+            $bio = $_POST['aboutMe'];
 
             if (Validation::validEmail($email)){
                 $member->setEmail($email);
@@ -133,6 +133,12 @@ class Controller
         echo $view->render('views/interests.html');
 
     }
+
+    function summary(){
+        $view = new Template();
+        echo $view->render('views/summary.html');
+    }
+
 
 
 }
