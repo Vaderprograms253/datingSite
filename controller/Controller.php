@@ -34,15 +34,21 @@ class Controller
     function personalInfo()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            var_dump($_POST);
-            if (isset($_POST['premium'])){
-                $member = new Member();
-            } else {
-                $member = new PremiumMember();
-            }
 
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
+            $age = $_POST['age'];
+            $phone = $_POST['phone'];
+            $gender = $_POST['gender'];
+
+
+            if (isset($_POST['premium'])){
+                $member = new PremiumMember();
+            } else {
+                $member = new Member();
+
+            }
+
             if (Validation::validName($firstName, $lastName)){
                 $member->setFirstName($firstName);
                 $member->setLastName($lastName);
@@ -50,21 +56,18 @@ class Controller
                 $this->_f3->set('errors["lastName"]', 'Invalid Name');
             }
 
-            $age = $_POST['age'];
             if (Validation::validAge($age)){
                 $member->setAge('userAge', $age);
             } else {
                 $this->_f3->set('errors[age]','Invalid age range');
             }
 
-            $phone = $_POST['phone'];
             if (Validation::validPhone($phone)){
                 $member->setPhone($phone);
             } else {
                 $this->_f3->set('errors[phone]', 'Invalid phone');
             }
 
-            $gender = $_POST['gender'];
             $member->setGender($gender);
 
             $_SESSION['member'] = $member;
@@ -86,6 +89,37 @@ class Controller
     function profile()
     {
         var_dump($_POST);
+
+        $member = $_SESSION['member'];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $email = $_POST['email'];
+            $state = $_POST['state'];
+            $seeking = $_POST['seeking'];
+            $bio = $_POST['bio'];
+
+            if (Validation::validEmail($email)){
+                $member->setEmail($email);
+            } else {
+                $this->_f3->set('errors[email]', 'Invalid email');
+            }
+            $member->setState($state);
+            $member->setSeeking($seeking);
+            $member->setBio($bio);
+
+            $_SESSION['member'] = $member;
+
+            if (empty($this->_f3->get('errors'))){
+                if ($member instanceof PremiumMember){
+                    header('location: interests');
+                } else {
+                    header('location: summary');
+
+                }
+            }
+
+        }
+        var_dump($_POST);
         $view = new Template();
         echo $view->render('views/profile.html');
     }
@@ -93,7 +127,7 @@ class Controller
     /*
      * Displays interests page
      */
-    function interests($f3)
+    function interests()
     {
         $view = new Template();
         echo $view->render('views/interests.html');
